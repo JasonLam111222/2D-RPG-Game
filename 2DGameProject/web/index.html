@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>2D RPG - HTML Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* fallback if stylesheet fails */
+    body { margin:0; font-family: 'MaruMonica', monospace; background:#111; color:#eee }
+  </style>
+  <script>
+    /* preload font */
+    (function(){
+      var f = new FontFace('MaruMonica','url(../res/font/x12y16pxMaruMonica.ttf)');
+      f.load().then(function(loaded){document.fonts.add(loaded)}).catch(()=>{});
+    })();
+  </script>
+</head>
+<body>
+  <div id="ui">
+    <div id="title">2D RPG — HTML Demo</div>
+    <div id="controls">
+      <button id="map-world">World Map</button>
+      <button id="map-dungeon">Dungeon 01</button>
+      <button id="music-toggle">Toggle Music</button>
+    </div>
+  </div>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <div id="footer">Use arrow keys or WASD to move. Switch maps with the buttons above.</div>
+
+  <!-- background music (large files are referenced from the repo) -->
+  <audio id="bgm" loop>
+    <source id="bgm-src" src="../res/sound/titlescreenmusic.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="game.js"></script>
+</body>
+</html>
